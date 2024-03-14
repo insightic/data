@@ -4,6 +4,7 @@ import logging
 from datetime import datetime
 import pyinsightic
 from yaml.scanner import ScannerError
+from pyinsightic.social.helper import stablecoin_mapping
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -22,8 +23,8 @@ class AnalysisRunner:
             )
             return
         logger.info(f"Running {self.analysis_function.__name__} for {project_dir}")
-        timestamp = "20240305"
-        # timestamp = datetime.now().strftime("%Y%m%d")
+        # timestamp = "20240305"
+        timestamp = datetime.now().strftime("%Y%m%d")
         file_name = f"{self.analysis_function.__name__}.json"
         analysis = self.analysis_function(project_dir=project_dir)
         analysis.run_analysis(timestamp, file_name=file_name)
@@ -73,6 +74,12 @@ def check_sosovalue(data):
     return True
 
 
+def check_sosovalue_news(data):
+    if data["name"].lower() in stablecoin_mapping.keys():
+        return True
+    return False
+
+
 # AnalysisRunner instances for each analysis
 analyses = [
     # AnalysisRunner(pyinsightic.Stablecoin, check_stablecoin),
@@ -80,7 +87,8 @@ analyses = [
     # AnalysisRunner(pyinsightic.Twitter, check_twitter),
     # AnalysisRunner(pyinsightic.SosoValue, check_sosovalue),
     # AnalysisRunner(pyinsightic.SmartContractValidator, check_smart_contract_validator),
-    AnalysisRunner(pyinsightic.SecurityAssessment, check_security_assessment),
+    # AnalysisRunner(pyinsightic.SecurityAssessment, check_security_assessment),
+    AnalysisRunner(pyinsightic.SosovalueNewsCrawler, check_sosovalue_news),
 ]
 
 
@@ -106,6 +114,6 @@ def main(test_folders=None):
 
 
 if __name__ == "__main__":
-    main()
+    # main()
     # os.chdir("stablecoin") # change directory for local test
-    # main(test_folders=["usdd"])
+    main(test_folders=["usdt"])

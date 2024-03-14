@@ -97,7 +97,7 @@ jobs:
 
           shopt -s globstar
           FILES_TO_COMMIT=""
-          for FILE_PATTERN in **/sosovalue.json **/linkedin.json **/twitter.json **/smartcontractvalidator.json **/stablecoin.json **/securityassessment.json; do
+          for FILE_PATTERN in **/sosovalue.json **/linkedin.json **/twitter.json **/smartcontractvalidator.json **/stablecoin.json **/sosovaluenewscrawler.json **/securityassessment.json; do
             if compgen -G "$FILE_PATTERN" > /dev/null; then
               FILES_TO_COMMIT="$FILES_TO_COMMIT $(echo $FILE_PATTERN)"
             else
