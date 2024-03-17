@@ -85,13 +85,13 @@ def check_sosovalue_news(data):
 
 # AnalysisRunner instances for each analysis
 analyses = [
-    # AnalysisRunner(pyinsightic.Stablecoin, check_stablecoin),
+    AnalysisRunner(pyinsightic.Stablecoin, check_stablecoin),
     # AnalysisRunner(pyinsightic.Linkedin, check_linkedin),
     # AnalysisRunner(pyinsightic.Twitter, check_twitter),
     # AnalysisRunner(pyinsightic.SosoValue, check_sosovalue),
     # AnalysisRunner(pyinsightic.SmartContractValidator, check_smart_contract_validator),
     # AnalysisRunner(pyinsightic.SecurityAssessment, check_security_assessment),
-    AnalysisRunner(pyinsightic.SosovalueNewsCrawler, check_sosovalue_news),
+    # AnalysisRunner(pyinsightic.SosovalueNewsCrawler, check_sosovalue_news),
 ]
 
 
@@ -117,6 +117,6 @@ def main(test_folders=None):
 
 
 if __name__ == "__main__":
-    main()
-    # os.chdir("stablecoin") # change directory for local test
-    # main(test_folders=["usdt"])
+    # main()
+    # os.chdir("stablecoin")  # change directory for local test
+    main(test_folders=["dai"])
