@@ -91,7 +91,7 @@ analyses = [
     # AnalysisRunner(pyinsightic.SosoValue, check_sosovalue),
     # AnalysisRunner(pyinsightic.SmartContractValidator, check_smart_contract_validator),
     # AnalysisRunner(pyinsightic.SecurityAssessment, check_security_assessment),
-    # AnalysisRunner(pyinsightic.SosovalueNewsCrawler, check_sosovalue_news),
+    AnalysisRunner(pyinsightic.SosovalueNewsCrawler, check_sosovalue_news),
     AnalysisRunner(pyinsightic.DefiLlamaNewsCrawler, check_sosovalue),
 ]
 
