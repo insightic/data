@@ -26,8 +26,8 @@ class AnalysisRunner:
             )
             return
         logger.info(f"Running {self.analysis_function.__name__} for {project_dir}")
-        # timestamp = "20240305"
-        timestamp = datetime.now().strftime("%Y%m%d")
+        timestamp = "20240317"
+        # timestamp = datetime.now().strftime("%Y%m%d")
         file_name = f"{self.analysis_function.__name__}.json"
         analysis = self.analysis_function(project_dir=project_dir)
         analysis.run_analysis(timestamp, file_name=file_name)
