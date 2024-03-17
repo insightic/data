@@ -2,7 +2,7 @@
 name: FDUSD
 description: First Digital USD (FDUSD) is a US dollar-pegged stablecoin aiming for stability, programmability, and compliance with regulations, backed by cash and cash equivalents..
 logo: assets/logo.png
-rating: A-
+rating: B
 links:
   website: https://firstdigitallabs.com
   twitter: https://twitter.com/FDLabsHQ
@@ -85,8 +85,6 @@ security_and_compliance:
         value: Contracts audited once by certik .
       - title: Security Auditors
         value: Certik
-      - title: Security Audit Rating
-        value: A-
       - title: Bug Bounty Programs
         value:
       - title: Insurance Coverage
