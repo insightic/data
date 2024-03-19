@@ -103,7 +103,7 @@ jobs:
 
           shopt -s globstar
           FILES_TO_COMMIT=""
-          for FILE_PATTERN in **/defillama_results.json; do
+          for FILE_PATTERN in **/*.json; do
             if compgen -G "$FILE_PATTERN" > /dev/null; then
               FILES_TO_COMMIT="$FILES_TO_COMMIT $(echo $FILE_PATTERN)"
             else
