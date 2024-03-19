@@ -70,7 +70,7 @@ jobs:
 
       - name: Install NLTK Data
         run: |
-          python -m nltk.downloader punkt
+          python -m nltk.downloader punkt stopwords
 
       - name: Run pyinsightic analysis
         run: |
