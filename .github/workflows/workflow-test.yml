@@ -68,6 +68,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_SECRET }}
 
+      - name: Install NLTK Data
+        run: |
+          python -m nltk.downloader punkt
+
       - name: Run pyinsightic analysis
         run: |
           cd stablecoin && (python main.py 2>&1 | tee analysis.log)
