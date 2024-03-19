@@ -85,20 +85,23 @@ def check_sosovalue_news(data):
 
 # AnalysisRunner instances for each analysis
 analyses = [
-    # AnalysisRunner(pyinsightic.Stablecoin, check_stablecoin),
-    # AnalysisRunner(pyinsightic.Linkedin, check_linkedin),
-    # AnalysisRunner(pyinsightic.Twitter, check_twitter),
-    # AnalysisRunner(pyinsightic.SosoValue, check_sosovalue),
-    # AnalysisRunner(pyinsightic.SmartContractValidator, check_smart_contract_validator),
-    # AnalysisRunner(pyinsightic.SecurityAssessment, check_security_assessment),
+    AnalysisRunner(pyinsightic.Stablecoin, check_stablecoin),
+    AnalysisRunner(pyinsightic.Linkedin, check_linkedin),
+    AnalysisRunner(pyinsightic.Twitter, check_twitter),
+    AnalysisRunner(pyinsightic.SosoValue, check_sosovalue),
+    AnalysisRunner(pyinsightic.SmartContractValidator, check_smart_contract_validator),
+    AnalysisRunner(pyinsightic.SecurityAssessment, check_security_assessment),
     AnalysisRunner(pyinsightic.SosovalueNewsCrawler, check_sosovalue_news),
-    # AnalysisRunner(pyinsightic.DefiLlamaNewsCrawler, check_sosovalue),
+    AnalysisRunner(pyinsightic.DefiLlamaNewsCrawler, check_sosovalue),
 ]
 
 
 def main(test_folders=None):
     for dir in os.listdir("."):
         if test_folders and dir not in test_folders:
+            continue
+        if dir == "dai":
+            logger.info("Skipping for dai folder")
             continue
         dir_path = os.path.join(".", dir)
         if os.path.isdir(dir_path) and os.path.exists(os.path.join(dir_path, "data.yml")):
@@ -118,6 +121,6 @@ def main(test_folders=None):
 
 
 if __name__ == "__main__":
-    # main()
+    main()
     # os.chdir("stablecoin")  # change directory for local test
-    main(test_folders=["dai"])
+    # main(test_folders=["dai"])
