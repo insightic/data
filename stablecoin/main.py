@@ -26,11 +26,11 @@ class AnalysisRunner:
             )
             return
         logger.info(f"Running {self.analysis_function.__name__} for {project_dir}")
-        timestamp = "20240317"
+        # timestamp = "20240317"
         # timestamp = datetime.now().strftime("%Y%m%d")
-        file_name = f"{self.analysis_function.__name__}.json"
+        # file_name = f"{self.analysis_function.__name__}.json"
         analysis = self.analysis_function(project_dir=project_dir)
-        analysis.run_analysis(timestamp, file_name=file_name)
+        analysis.run_analysis()
 
 
 # Condition check functions
@@ -91,7 +91,7 @@ analyses = [
     # AnalysisRunner(pyinsightic.SosoValue, check_sosovalue),
     # AnalysisRunner(pyinsightic.SmartContractValidator, check_smart_contract_validator),
     # AnalysisRunner(pyinsightic.SecurityAssessment, check_security_assessment),
-    AnalysisRunner(pyinsightic.SosovalueNewsCrawler, check_sosovalue_news),
+    # AnalysisRunner(pyinsightic.SosovalueNewsCrawler, check_sosovalue_news),
     AnalysisRunner(pyinsightic.DefiLlamaNewsCrawler, check_sosovalue),
 ]
 
@@ -118,6 +118,6 @@ def main(test_folders=None):
 
 
 if __name__ == "__main__":
-    main()
+    # main()
     # os.chdir("stablecoin")  # change directory for local test
-    # main(test_folders=["dai"])
+    main(test_folders=["dai"])
